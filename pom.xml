@@ -106,7 +106,7 @@
         <repository>
             <id>nexus</id>
             <name>Releases</name>
-            <url>http://localhost:8081/repository/maven-releases-fp/</url>
+        <url>http://nexus:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
