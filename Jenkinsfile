@@ -32,9 +32,8 @@ pipeline {
                             mvn sonar:sonar \
                               -Dsonar.projectKey=eventsProject \
                               -Dsonar.host.url=http://sonarqube:9000 \
-                              -Dsonar.login=${SONAR_TOKEN}
+                              -Dsonar.login=${SONAR_TOKEN} \
                               -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
-
                         """
                     }
                 }
