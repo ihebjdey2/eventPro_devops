@@ -1,4 +1,4 @@
-﻿package tn.esprit.eventsproject;
+﻿package tn.esprit.eventsproject.services;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,7 +13,6 @@ import tn.esprit.eventsproject.entities.Tache;
 import tn.esprit.eventsproject.repositories.EventRepository;
 import tn.esprit.eventsproject.repositories.LogisticsRepository;
 import tn.esprit.eventsproject.repositories.ParticipantRepository;
-import tn.esprit.eventsproject.services.EventServicesImpl;
 
 import java.time.LocalDate;
 import java.util.*;
