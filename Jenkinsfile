@@ -39,5 +39,18 @@ pipeline {
                 }
             }
         }
+
+                stage('Deploy to Nexus') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                    sh """
+                        mvn clean deploy \
+                          -Dnexus.username=$NEXUS_USER \
+                          -Dnexus.password=$NEXUS_PASS
+                    """
+                }
+            }
+        }
+
     }
 }
