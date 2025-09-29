@@ -1,4 +1,4 @@
-﻿package tn.esprit.eventsproject.services;
+package tn.esprit.eventsproject.services;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
