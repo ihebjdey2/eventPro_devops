@@ -1,16 +1,21 @@
 pipeline {
     agent any
-    tools { maven 'M3'
-    jdk 'jdk17' }
+    tools {
+        jdk 'jdk17'
+        maven 'M3'
+    }
     stages {
         stage('Checkout') {
-            steps {
-                checkout scm
-            }
+            steps { checkout scm }
         }
-        stage('Build') {
+        stage('Build & Test') {
             steps {
-                sh 'mvn clean install'
+                sh 'mvn clean test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
     }
