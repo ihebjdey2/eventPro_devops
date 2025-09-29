@@ -21,16 +21,21 @@ pipeline {
                 always {
                     junit '**/target/surefire-reports/*.xml'
                 }
-            }stage('SonarQube Analysis') {
-    steps {
-        withSonarQubeEnv('sonarqube') {
-            withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
-                sh """
-                    mvn sonar:sonar \
-                      -Dsonar.projectKey=eventsProject \
-                      -Dsonar.host.url=http://sonarqube:9000 \
-                      -Dsonar.login=${SONAR_TOKEN}
-                """
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                    withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                        sh """
+                            mvn sonar:sonar \
+                              -Dsonar.projectKey=eventsProject \
+                              -Dsonar.host.url=http://sonarqube:9000 \
+                              -Dsonar.login=${SONAR_TOKEN}
+                        """
+                    }
+                }
             }
         }
     }
